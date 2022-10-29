@@ -8,10 +8,18 @@ const server = http.createServer((peticion,respuesta)=>{
     switch(peticion.url){
         case '/1':
             //router.index(peticion,respuesta)
-            
-            let multiplicacion = 1*yargs.argv.n2
-            respuesta.writeHead(200,{'Content-Type':'application/json'});
-            respuesta.write(`La multiplicacion de los numeros 1 * ${n2} es: ${multiplicacion}`);
+
+            const yargs = require('yargs').option('n2',{alias:'n2',type:'number'}).check((argv,options)=>{
+                if(argv.n1<0 || argv.n2<0){
+                    throw 'El numero debe ser mayor que cero'
+                }else{
+                    return true
+                }
+            })
+
+            let multiplicacion = 5*yargs.argv.n2
+            respuesta.writeHead(200,{'Content-Type':'text/plain'});
+            respuesta.write(`La multiplicacion es: ${multiplicacion}`);
             break
         case '/empleado':
             router.empleado(peticion,respuesta) 
