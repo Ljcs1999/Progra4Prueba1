@@ -73,7 +73,46 @@ const server = http.createServer((peticion,respuesta)=>{
                 let multiplicacion5 = 5*yargs4.argv.n2
                 respuesta.writeHead(200,{'Content-Type':'text/plain'});
                 respuesta.write(`La multiplicacion es: ${multiplicacion5}`);
-                break    
+                break
+        case '/6':
+                    const yargs5 = require('yargs').option('n2',{alias:'n2',type:'number'}).check((argv,options)=>{
+                        if(argv.n2<0){
+                            throw 'El numero debe ser mayor que cero'
+                        }else{
+                            return true
+                        }
+                    })
+        
+                    let multiplicacion6 = 6*yargs5.argv.n2
+                    respuesta.writeHead(200,{'Content-Type':'text/plain'});
+                    respuesta.write(`La multiplicacion es: ${multiplicacion6}`);
+                    break
+        case '/7':
+                        const yargs6 = require('yargs').option('n2',{alias:'n2',type:'number'}).check((argv,options)=>{
+                            if(argv.n2<0){
+                                throw 'El numero debe ser mayor que cero'
+                            }else{
+                                return true
+                            }
+                        })
+            
+                        let multiplicacion7 = 7*yargs6.argv.n2
+                        respuesta.writeHead(200,{'Content-Type':'text/plain'});
+                        respuesta.write(`La multiplicacion es: ${multiplicacion7}`);
+                        break
+        case '/8':
+                            const yargs7 = require('yargs').option('n2',{alias:'n2',type:'number'}).check((argv,options)=>{
+                                if(argv.n2<0){
+                                    throw 'El numero debe ser mayor que cero'
+                                }else{
+                                    return true
+                                }
+                            })
+                
+                            let multiplicacion8 = 8*yargs7.argv.n2
+                            respuesta.writeHead(200,{'Content-Type':'text/plain'});
+                            respuesta.write(`La multiplicacion es: ${multiplicacion8}`);
+                            break       
         default:
             respuesta.writeHead(404,{'Content-Type':'text/plain'});
             respuesta.write('Pagina no disponible');
